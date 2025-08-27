@@ -1,18 +1,21 @@
 spring:
   application:
-    name: smartmarket
+    name: address
+
   datasource:
     url: jdbc:mysql://localhost:3306/smartmarket?useSSL=false&serverTimezone=UTC
     username: root
     password: Chaara@06
     driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
-  security:
-    user:
-      name: admin
-      password: admin123
+    
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+server:
+  port: 8088
